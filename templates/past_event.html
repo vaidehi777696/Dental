@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Events</title>
+</head>
+<body>
+    <h1>Past Events</h1>
+    {% for event in events %}
+        <div>
+            <h2>{{ event.title }}</h2>
+            <p>{{ event.description }}</p>
+            <p>Date: {{ event.date }}</p>
+            <img src="{{ event.photo.url }}" alt="{{ event.title }}">
+        </div>
+    {% endfor %}
+</body>
+</html>

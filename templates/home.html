@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Association Name</title>
+        <!-- Include CSS styles -->
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <!-- Header with association name -->
+        <header>
+            <h1>Association Name</h1>
+        </header>
+    
+        <!-- Navigation bar -->
+        <nav>
+            <ul>
+                <!-- Include other menu items here -->
+                <li><a href="/">Home</a></li>
+                <!-- Add more menu items -->
+            </ul>
+        </nav>
+    
+        <!-- Main content area -->
+        <main>
+            <!-- Logo of the Association -->
+            <img src="{% static 'association_logo.png' %}" alt="Association Logo">
+    
+            <!-- College photo and write-up -->
+            <div class="college-photo">
+                <img src="{% static 'college_photo.jpg' %}" alt="College Photo">
+                <p>A small write-up about the college</p>
+            </div>
+    
+            <!-- Office bearers -->
+            <div class="office-bearers">
+                <h2>Office Bearers</h2>
+                <ul>
+                    {% for bearer in office_bearers %}
+                        <li>
+                            <img src="{{ bearer.photo.url }}" alt="{{ bearer.name }} Photo">
+                            <p>{{ bearer.name }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+    
+            <!-- Upcoming news and events -->
+            <div class="upcoming">
+                <div class="news">
+                    <h2>Upcoming News</h2>
+                    <ul>
+                        {% for news_item in upcoming_news %}
+                            <li>{{ news_item.title }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="events">
+                    <h2>Upcoming Events</h2>
+                    <ul>
+                        {% for event_item in upcoming_events %}
+                            <li>{{ event_item.title }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </main>
+    
+        <!-- Footer with phone number and mail ID -->
+        <footer>
+            <p>Phone Number: XXX-XXX-XXXX | Mail ID: example@example.com</p>
+        </footer>
+    </body>
+    </html> 
+        

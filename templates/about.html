@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+</head>
+<body>
+    <h1>About Us</h1>
+    {% if about_us %}
+        <p>{{ about_us.write_up }}</p>
+        {% if photos %}
+            <h2>Photos</h2>
+            <div class="photo-gallery">
+                {% for photo in photos %}
+                    <img src="{{ photo.photo.url }}" alt="About Us Photo">
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% else %}
+        <p>No information available.</p>
+    {% endif %}
+</body>
+</html>
